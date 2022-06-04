@@ -4,7 +4,7 @@
 - Use Json Data ✅
 - Create Mongo Database ✅
 - Deployement in Flask ✅ P.S I know Django as well
-- Vissualization in plotly.js ✅
+- Visualization in plotly.js ✅
 - Dashboard Read Data from Mongo ✅
 - Used Important Variables ✅
 
