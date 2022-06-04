@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+    <title>Visualization Dashboard</title>
+</head>
+<body>
+    <form action="/graph_operation" method="post">
+        <select name="variables" id="variables">
+            {% for i in var %}
+                <option value= {{ i }} >{{ i }}</option>
+            {% endfor %}
+        </select>
+        <select name="filters" id="filters">
+            {% for i in filters %}
+                <option value= {{ i }} >{{ i }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">submit</button>
+    </form>
+    {% if topic %}
+        <span id="test_div" > </span>
+    {% endif%}
+</body>
+<script>
+    var selectvalue = document.getElementById("test"), names = {{ name | tojson }};
+    let text = "{{ topic }}";
+    let res = text.toUpperCase();
+    var data = [
+        {
+            x:  names ,
+            y: {{ size }},
+            name: "Sector",
+            type: 'bar'
+        }
+        ];
+        var layout = {
+            title: {
+                text: res
+            },
+            xaxis: {
+                title: {
+                    text: res+" Name"
+                },
+            },
+            yaxis: {
+                title: {
+                    text: res+" SIZE"
+                },
+            }
+        };
+
+        Plotly.newPlot('test_div', data, layout);
+</script>
+
+</html>

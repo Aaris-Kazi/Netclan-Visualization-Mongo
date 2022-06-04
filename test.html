@@ -1,0 +1,139 @@
+<html>
+
+<head>
+    <title>
+    Bar Graph
+    </title>
+
+    <style type="text/css">
+  
+        .box1{
+            margin-top: 5px;
+            margin-left: 0px;
+            width: 2px;
+            height: 2px;
+            background-color: red;
+            float:left;
+            font-family: monospace;
+            
+        
+        }
+        .h1{
+            font-family: monospace;
+            font-size: 15px;
+            background-color: black;
+            color: white;
+            width: 140px;
+            padding: 10px;
+            border-radius: 10px;
+            
+        }
+        .h2{
+            font-family: monospace;
+            font-size: 15px;
+            background-color: black;
+            color: white;
+            width: 140px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #texted{
+            
+            border-radius: 10px;
+        }
+    </style>    
+    
+</head>
+<body>
+    
+    
+<h1 class="h1">
+
+    Enter your value:
+    
+    
+    
+</h1>    
+    
+<input id="texted" type="text">    
+<button id="nvalue" class="h1">Next Value</button>    
+<button id="pbargraph" class="h1">Produce Bar Graph</button>    
+<h2 class="h2">Colour of Bar Graph:</h2>
+<select id="sel">
+    
+<option>
+    black
+</option>    
+    <option>
+    green
+</option>  <option>
+    blue
+</option> 
+    
+
+<option>
+    grey
+</option>    
+    <option>
+    yellow
+</option>  
+<option>
+    pink
+</option> 
+<option>
+    red
+</option>
+    
+</select>
+<div id="string"></div>
+<div id="box">
+    
+    
+    
+</div>    
+    
+<script type="text/javascript">
+var j =0;
+var maxlength=0;
+var array = new Array();
+    var tweets="";
+    var contain="";
+document.getElementById("nvalue").onclick=function(){
+    
+    array[j]=document.getElementById("texted").value;
+    if(array[j].length>maxlength){
+
+    maxlength = array[j].length;
+    }
+    document.getElementById("texted").value="";
+    j++;
+    
+}
+
+document.getElementById("pbargraph").onclick=function(){
+     
+  
+        document.getElementById("string").innerHTML=tweets;
+
+    var container = document.getElementById("box");
+        for (var i = 0; i < array.length; i++) {
+            container.innerHTML += '<div class="box1"   style="background-color:'+  document.getElementById("sel").value+'">'+array[i]+'</div>';
+            for(var j=0;j<Math.floor(((array[i])*250)/Math.pow(10,maxlength));j++)
+            {
+            container.innerHTML += '<div class="box1" style="background-color:'+document.getElementById("sel").value+'"></div>';
+            }
+            container.innerHTML +="<br>";
+
+                }
+container.innerHTML +="<hr>";
+}
+    
+    
+    
+    
+</script>    
+    
+    
+</body>    
+
+</html>
