@@ -2,8 +2,8 @@ from pymongo import MongoClient
 import numpy as np
 
 cluster = MongoClient("localhost:27017")
-db = cluster['static_data']
-collection = db['visualize']
+db = cluster['black_coffer']
+collection = db['data']
 result =  collection.find()
 
 def charachter_count(arr, i):
