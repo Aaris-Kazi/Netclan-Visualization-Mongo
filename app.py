@@ -16,7 +16,7 @@ def graph():
     x, y = [],[]
     variables = ['intensity', 'likelihood', 'relevance', 'country', 'topic', 'region', 'city']
     filters = ['end_year', 'topic', 'sector', 'region', 'pestle', 'country', 'city']
-    return render_template('graph.html', var = variables, filters = filters, name = x, size = y, topic = "")
+    return render_template('index.html', var = variables, filters = filters, name = x, size = y, topic = "")
 
 @app.route('/graph_operation', methods = ["GET","POST"])
 def graph_op():
