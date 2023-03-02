@@ -1,11 +1,12 @@
-
-from flask import Flask, render_template, url_for, request
+from flask import Flask, redirect, render_template, url_for, request
 from mongo import show_sector, var_graph
+from flask_restful import Resource, Api
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 sector_name, sector_size = show_sector()
-# print(sector_size)
-# print(sector_name)
 
 @app.route('/graph')
 def index():
@@ -28,6 +29,16 @@ def graph_op():
     # print(x,y)
     return render_template('graph.html', var = variables, filters = filters, name = x, size = y, topic=var)
 
+# /search?search=RELEVANCE
+@app.route('/search', methods = ["GET","POST"])
+def search():
+    if request.method == "GET":
+        search = request.args.get('search')
+        print(search)
+        return redirect('/')
+    else:
+        return redirect("/")
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
