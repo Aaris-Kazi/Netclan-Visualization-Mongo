@@ -34,7 +34,7 @@
                         line_axis
                     </span>
                 </span>
-                <input type="text" class="form-control" placeholder="eg: intensity" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" placeholder="eg: intensity" aria-label="Username" aria-describedby="basic-addon1" name="search">
             </form>
         </div>
         <div class="row flowing" style="flex-wrap: nowrap; padding: 2%; " id="flowing-suggestions">
@@ -65,12 +65,13 @@
         </div>
         <div class="row">
             <div id='test_div'><!-- Plotly chart will be drawn inside this DIV --></div>
-            
+            <span id="test" > </span>
         </div>
     </div>
 </body>
 </html>
 <script src="dashboard_ui.js"></script>
+<script src="autocomplete.js"></script>
 <script>
     TESTER = document.getElementById('tester');
 
