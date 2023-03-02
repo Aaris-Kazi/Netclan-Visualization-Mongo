@@ -70,8 +70,8 @@
     </div>
 </body>
 </html>
-<script src="dashboard_ui.js"></script>
-<script src="autocomplete.js"></script>
+<script src="{{ url_for('static', filename='dashboard_ui.js') }}"></script>
+<script src="{{ url_for('static', filename='autocomplete.js') }}"></script>
 <script>
     TESTER = document.getElementById('tester');
 
