@@ -14,10 +14,7 @@ def index():
 
 @app.route('/')
 def graph():
-    x, y = [],[]
-    variables = ['intensity', 'likelihood', 'relevance', 'country', 'topic', 'region', 'city']
-    filters = ['end_year', 'topic', 'sector', 'region', 'pestle', 'country', 'city']
-    return render_template('index.html', var = variables, filters = filters, name = x, size = y, topic = "")
+    return render_template('index.html')
 
 @app.route('/graph_operation', methods = ["GET","POST"])
 def graph_op():
@@ -34,12 +31,19 @@ def graph_op():
 def search():
     if request.method == "GET":
         search = request.args.get('search')
-        print(search)
         x, y = sumofAll(str(search).lower())
-        print(x, y)
         return render_template('index.html', topic = search, x = x, y = y, x_label = search, y_label = 'sum')
     else:
         return redirect("/")
+
+# http://127.0.0.1:5000/filter?search=RELEVANCE&&filter=year
+@app.route('/filter', methods = ["GET","POST"])
+def filter():
+    if request.method == "GET":
+        search = request.args.get('search')
+        filter = request.args.get('filter')
+        print(search, filter)
+    return redirect('/')
     
 
 if __name__ == '__main__':

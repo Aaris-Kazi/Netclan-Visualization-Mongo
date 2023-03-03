@@ -59,3 +59,6 @@ def sumofAll(var):
         x.append(i)
         y.append(result)
     return x, y
+
+def sumofFilter():
+    pass
