@@ -74,26 +74,30 @@
                 </a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-1">
-                <span class="material-symbols-outlined">
-                    filter_list
-                </span>
+        {% if topic %}
+            <div class="row">
+                <div class="col-1">
+                    <span class="material-symbols-outlined">
+                        filter_list
+                    </span>
+                </div>
+                <div class="col-2">
+                    <select class="form-select" aria-label="Default select example" onchange="filter_direction({{ topic }})">
+                        <option selected>sum</option>
+                        <option>end year</option>
+                        <option>topics</option>
+                        <option>sector</option>
+                        <option>resgion</option>
+                        <option>pest</option>
+                        <option>source</option>
+                        <option>swot</option>
+                        <option>country</option>
+                    </select>
+                </div>
             </div>
-            <div class="col-2">
-                <select class="form-select" aria-label="Default select example" onchange="filter_direction()">
-                    <option selected>sum</option>
-                    <option>end year</option>
-                    <option>topics</option>
-                    <option>sector</option>
-                    <option>resgion</option>
-                    <option>pest</option>
-                    <option>source</option>
-                    <option>swot</option>
-                    <option>country</option>
-                  </select>
-            </div>
-        </div>
+        {% else %}
+        {% endif %}
+        
         <div class="row">
             <div class="col">
                 <div id='test_div'><!-- Plotly chart will be drawn inside this DIV --></div>
