@@ -104,5 +104,5 @@ function autocomplete(inp, arr) {
     });
   }
   
-var place= ['INTENSITY', "LIKELIHOOD", "RELEVANCE", "YEAR", "COUNTRY", "TOPICS", "REGION", "CITY"];
+var place= ['INTENSITY', "LIKELIHOOD", "RELEVANCE", "YEAR", "COUNTRY", "TOPIC", "REGION",];
 autocomplete(document.getElementsByName("search")[0], place);
