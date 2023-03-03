@@ -37,7 +37,7 @@ def search():
         print(search)
         x, y = sumofAll(str(search).lower())
         print(x, y)
-        return render_template('index.html', topic = search, x = x, y = y)
+        return render_template('index.html', topic = search, x = x, y = y, x_label = search, y_label = 'sum')
     else:
         return redirect("/")
     

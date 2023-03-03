@@ -89,8 +89,10 @@
 <script>
     TESTER = document.getElementById('test');
 
-    
+    {% if topic %}
         var selectvalue = document.getElementById("test"), test = {{ x | tojson }};
+    {% else %}
+    {% endif %}
     
 
     var data = [
@@ -107,12 +109,12 @@
         },
         xaxis: {
             title: {
-                text: "SECTOR Name"
+                text: "{{ x_label }}"
             },
         },
         yaxis: {
             title: {
-                text: "SECTOR SIZE"
+                text: "{{ y_label }}"
             },
         }
     };
