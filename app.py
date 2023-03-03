@@ -35,8 +35,9 @@ def search():
     if request.method == "GET":
         search = request.args.get('search')
         print(search)
-        x, y = sumofAll(search)
-        return redirect('/')
+        x, y = sumofAll(str(search).lower())
+        print(x, y)
+        return render_template('index.html', topic = search, x = x, y = y)
     else:
         return redirect("/")
     

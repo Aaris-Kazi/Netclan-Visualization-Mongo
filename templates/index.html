@@ -39,30 +39,50 @@
         </div>
         <div class="row flowing" style="flex-wrap: nowrap; padding: 2%; " id="flowing-suggestions">
             <div class="col">
-                <button type="button" class="btn btn-light" onclick="">INTENSITY</button>
+                <a href="/search?search=INTENSITY">
+                    <button type="button" class="btn btn-light" onclick="">INTENSITY</button>
+                </a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-light" onclick="">LIKELIHOOD</button>
+                <a href="/search?search=LIKELIHOOD">
+                    <button type="button" class="btn btn-light" onclick="">LIKELIHOOD</button>
+                </a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-light" onclick="">RELEVANCE</button>
+                <a href="/search?search=RELEVANCE">
+                    <button type="button" class="btn btn-light" onclick="">RELEVANCE</button>
+                </a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-light" onclick="">YEAR</button>
+                <a href="/search?search=YEAR">
+                    <button type="button" class="btn btn-light" onclick="">YEAR</button>
+                </a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-light" onclick="">COUNTRY</button>
+                <a href="/search?search=COUNTRY">
+                    <button type="button" class="btn btn-light" onclick="">COUNTRY</button>
+                </a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-light" onclick="">TOPICS</button>
+                <a href="/search?search=TOPICS">
+                    <button type="button" class="btn btn-light" onclick="">TOPICS</button>
+                </a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-light" onclick="">REGION</button>
+                <a href="/search?search=REGION">
+                    <button type="button" class="btn btn-light" onclick="">REGION</button>
+                </a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-light" onclick="">CITY</button>
+                <a href="/search?search=CITY">
+                    <button type="button" class="btn btn-light" onclick="">CITY</button>
+                </a>
             </div>
         </div>
+        {% if topic %}
+            {{ topic }}
+        {% else %}
+        {% endif %}
         <div class="row">
             <div id='test_div'><!-- Plotly chart will be drawn inside this DIV --></div>
             <span id="test" > </span>
@@ -73,19 +93,19 @@
 <script src="{{ url_for('static', filename='dashboard_ui.js') }}"></script>
 <script src="{{ url_for('static', filename='autocomplete.js') }}"></script>
 <script>
-    TESTER = document.getElementById('tester');
+    TESTER = document.getElementById('test');
 
     Plotly.newPlot( TESTER, [{
     x: [1, 2, 3, 4, 5],
     y: [1, 2, 4, 8, 16] }], {
     margin: { t: 0 } } );
-
-    var selectvalue = document.getElementById("test"), test = {{ name | tojson }};
+        var selectvalue = document.getElementById("test"), test = {{ x | tojson }};
+    
 
     var data = [
     {
         x:  test ,
-        y: {{ size }},
+        y: {{ y }},
         name: "Sector",
         type: 'bar'
     }

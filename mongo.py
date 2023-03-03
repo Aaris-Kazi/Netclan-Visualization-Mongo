@@ -54,10 +54,8 @@ def var_graph(var, fil):
 def sumofAll(var):
     x,y = [],[]
     result =  collection.find().distinct(var)
-
     for i in result:
         result =  collection.count_documents({var: i}) 
-        # print(i, result)
         x.append(i)
         y.append(result)
     return x, y
