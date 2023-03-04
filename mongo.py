@@ -60,5 +60,16 @@ def sumofAll(var):
         y.append(result)
     return x, y
 
-def sumofFilter():
-    pass
+def sumofFilter(search, filter):
+    x =  collection.find().distinct(filter)
+    y = []
+    for i in x:
+        result =  collection.find({filter: i})
+        sum_all = 0
+        for j in result:
+            try:
+                sum_all+= int(j[search])
+            except Exception:
+                pass
+        y.append(sum_all)
+    return x, y
