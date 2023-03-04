@@ -43,7 +43,9 @@ def filter():
         search = request.args.get('search')
         filter = request.args.get('filter')
         print(search, filter)
-        x,y = sumofFilter(str(search).lower(), str(filter).lower())
+        filter = str(filter)
+        filter = filter.replace(" ", "_")
+        x,y = sumofFilter(str(search).lower(), filter.lower())
         return render_template('index.html', topic = search, x = x, y = y, x_label = search, y_label = filter)
     # return redirect('/')
     
