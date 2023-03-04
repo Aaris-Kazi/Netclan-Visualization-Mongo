@@ -75,6 +75,9 @@
             </div>
         </div>
         {% if topic %}
+            <div class="row text-center">
+                <span class="h3" id="dashboard-name">{{ topic }}</span>
+            </div>
             <div class="row">
                 <div class="col-1">
                     <span class="material-symbols-outlined">
@@ -82,12 +85,12 @@
                     </span>
                 </div>
                 <div class="col-2">
-                    <select id='filters' class="form-select" aria-label="Default select example" onchange="filter_direction('{{ topic }}')">
+                    <select id='filters' class="form-select" aria-label="Default select example" onchange="filter_direction()">
                         <option selected>sum</option>
                         <option>end year</option>
                         <option>topics</option>
                         <option>sector</option>
-                        <option>resgion</option>
+                        <option>region</option>
                         <option>pest</option>
                         <option>source</option>
                         <option>swot</option>
