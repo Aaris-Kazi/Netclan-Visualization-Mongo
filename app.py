@@ -1,7 +1,7 @@
 from flask import Flask, redirect, render_template, url_for, request
 from flask_restful import Resource, Api
 from flask_cors import CORS
-from mongo import show_sector, var_graph, sumofAll
+from mongo import show_sector, var_graph, sumofAll, sumofFilter
 
 app = Flask(__name__)
 CORS(app)
@@ -36,14 +36,16 @@ def search():
     else:
         return redirect("/")
 
-# http://127.0.0.1:5000/filter?search=RELEVANCE&&filter=year
+# http://127.0.0.1:5000/filter?search=RELEVANCE&&filter=end_year
 @app.route('/filter', methods = ["GET","POST"])
 def filter():
     if request.method == "GET":
         search = request.args.get('search')
         filter = request.args.get('filter')
         print(search, filter)
-    return redirect('/')
+        x,y = sumofFilter(str(search).lower(), str(filter).lower())
+        return render_template('index.html', topic = search, x = x, y = y, x_label = search, y_label = filter)
+    # return redirect('/')
     
 
 if __name__ == '__main__':
