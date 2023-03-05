@@ -1,5 +1,4 @@
 from flask import Flask, redirect, render_template, url_for, request
-from flask_restful import Resource, Api
 from flask_cors import CORS
 from mongo import  sumofAll, sumofFilter
 
